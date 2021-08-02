@@ -1,13 +1,41 @@
 @import-normalize;
 
-*, *::before, *::after {
+body {
+  --color: white;
+  --accent-1: #21242d;
+  --accent-2: #a1a1a1;
+  --background: #1b1c23;
+  --border: #262a30;
+  --primary: #7045ff;
+  --success: #5dcb8e;
+  --error: #e8235e;
+  --yellow: #f5a623;
+  --dark: #1b1c23;
+  --primary-color: white;
+}
+
+*,
+*::before, 
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
+  color: var(--color);
+  background-color: var(--background);
+  font: 14px 'Open Sans', sans-serif;
   margin: 0;
+}
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
 }
