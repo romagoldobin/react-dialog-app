@@ -1,10 +1,13 @@
 import React from 'react';
+import UserInfo from './UserInfo';
 
 import './index.scss';
 
 const Header = () => (
   <div>
-    <header className="Header">header</header>
+    <header className="Header">
+      <UserInfo />
+    </header>
   </div>
 );
 
