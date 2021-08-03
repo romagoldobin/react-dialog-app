@@ -4,11 +4,9 @@ import UserInfo from './UserInfo';
 import './index.scss';
 
 const Header = () => (
-  <div>
-    <header className="Header">
-      <UserInfo />
-    </header>
-  </div>
+  <header className="Header">
+    <UserInfo />
+  </header>
 );
 
 export default Header;
