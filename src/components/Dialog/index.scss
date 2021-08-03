@@ -1,0 +1,8 @@
+.Dialog {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+  padding: 8px;
+  mask-image: linear-gradient(transparent, black 5%, black 95%, transparent 100%);
+}

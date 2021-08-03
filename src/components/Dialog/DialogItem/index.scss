@@ -1,0 +1,117 @@
+.DialogItem {
+  display: flex;
+  align-items: flex-end;
+  margin: 8px 0;
+
+  &_Reverse {
+    flex-direction: row-reverse;
+
+    .Message {
+      flex-direction: row-reverse;
+
+      &:last-child {
+        svg.Message__Status {
+          opacity: 1;
+          visibility: visible;
+          display: block;
+        }
+      }
+
+      &:hover svg.Message__Remove {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &__Text {
+        color: var(--primary-color);
+        background: var(--primary);
+      }
+
+      &__Time {
+        margin-left: 0;
+        margin-right: 10px;
+      }
+    }
+
+    svg.Message__Remove, svg.Message__Status {
+      margin-left: 0;
+      margin-right: 8px;
+    }
+
+    > .DialogItem__Avatar {
+        margin-right: 0;
+        margin-left: 10px;
+    }
+  }
+
+  &_Removable {
+
+  }
+
+  &__Avatar {
+    border-radius: 50%;
+    width: 35px; height: 35px;
+    margin-right: 8px;
+    object-fit: cover;
+  }
+
+  &__MessagesList {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.Message {
+  display: inline-flex;
+  align-items: center;
+
+  &:hover, &:last-child {
+    .Message__Time {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 4px;
+  }
+
+  &__Text {
+    border-radius: 5px;
+    padding: 4px 8px;
+    word-break: break-word;
+    background: var(--accent-1);
+  }
+
+  &__Time {
+    font-size: 13px;
+    color: var(--accent-2);
+    margin-left: 8px;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+svg.Message__Remove, svg.Message__Status {
+  margin-left: 8px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  flex-shrink: 0;
+}
+
+svg.Message__Status {
+  display: none;
+}
+
+svg.Message__Remove {
+  margin-left: 4px;
+}
+
+svg.Message__Status path {
+  fill: var(--primary);
+}
+ 
+svg.Message__Remove path {
+  fill: var(--error);
+}
