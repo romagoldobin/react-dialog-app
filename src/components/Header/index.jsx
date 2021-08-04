@@ -10,8 +10,6 @@ import './index.scss';
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const changeTheme = () => {
-    // eslint-disable-next-line no-debugger
-    debugger;
     const currnetTheme = theme === 'light' ? 'dark' : 'light';
     toggleTheme(currnetTheme);
   };

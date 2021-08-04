@@ -3,7 +3,6 @@ import dayjs from 'dayjs';
 // eslint-disable-next-line import/prefer-default-export
 export const normalizeDialog = (dialog) => {
   const newDialog = [];
-  // eslint-disable-next-line no-debugger
   // TODO: refactoring this (map?);
 
   dialog.forEach((item, i) => {
