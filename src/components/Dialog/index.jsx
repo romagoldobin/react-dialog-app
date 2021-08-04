@@ -1,20 +1,18 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import DialogItem from './DialogItem';
 import Title from './Title';
 
 import { normalizeDialog } from './helpers';
-import data from '../../data';
-import reducer from './reducer';
 
 import './index.scss';
 
 const Dialog = ({ newMessage }) => {
-  const initialState = { messages: data };
-
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const normilizedDialog = normalizeDialog(state.messages);
+  const dispatch = useDispatch();
+  const messages = useSelector((store) => store.messagesReducer.messages);
+  const normilizedDialog = normalizeDialog(messages);
 
   const omRemove = (id) => {
     dispatch({
