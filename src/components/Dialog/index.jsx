@@ -2,6 +2,7 @@ import React, { useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import DialogItem from './DialogItem';
+import Title from './Title';
 
 import { normalizeDialog } from './helpers';
 import data from '../../data';
@@ -30,10 +31,10 @@ const Dialog = ({ newMessage }) => {
 
   return (
     <section className="Dialog">
-      {normilizedDialog.map((dialog) => (
+      {normilizedDialog.map((dialog) => (dialog.type === 'message' ? (
         // eslint-disable-next-line react/jsx-props-no-spreading
         <DialogItem {...dialog} key={dialog.id} onRemove={omRemove} />
-      ))}
+      ) : <Title key={dialog.id} date={dialog.date} />))}
     </section>
   );
 };

@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 // eslint-disable-next-line import/prefer-default-export
 export const normalizeDialog = (dialog) => {
   const newDialog = [];
@@ -5,6 +7,18 @@ export const normalizeDialog = (dialog) => {
   // TODO: refactoring this (map?);
 
   dialog.forEach((item, i) => {
+    if (i === 0 || dialog[i - 1]) {
+      const first = dayjs((i === 0 ? item : dialog[i - 1]).date);
+      const diff = first.diff(item.date, 'day');
+
+      if (i === 0 || diff) {
+        newDialog.push({
+          type: 'title',
+          id: `item-title-${item.id}`,
+          date: item.date,
+        });
+      }
+    }
     //  i === 0
     //  fits object is modifying and push in new array
     //  item.is !== dialog[i - 1].is - different senders
