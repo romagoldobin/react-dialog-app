@@ -4,6 +4,7 @@ import WebFontLoader from 'webfontloader';
 import dayjs from 'dayjs';
 
 import App from './App';
+import 'dayjs/locale/ru';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
 
