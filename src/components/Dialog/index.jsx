@@ -25,7 +25,7 @@ const Dialog = ({ newMessage }) => {
   useEffect(() => {
     if (!newMessage) return;
     dispatch({ type: 'add-message', payload: newMessage });
-    console.log(state);
+    setTimeout(() => dispatch({ type: 'update-status', payload: { id: newMessage.id, status: 'readed' } }), 5000);
   }, [newMessage]);
 
   return (
