@@ -15,6 +15,13 @@ const Dialog = ({ newMessage }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const normilizedDialog = normalizeDialog(state.messages);
 
+  const omRemove = (id) => {
+    dispatch({
+      type: 'remove-message',
+      payload: id,
+    });
+  };
+
   useEffect(() => {
     if (!newMessage) return;
     dispatch({ type: 'add-message', payload: newMessage });
@@ -25,7 +32,7 @@ const Dialog = ({ newMessage }) => {
     <section className="Dialog">
       {normilizedDialog.map((dialog) => (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <DialogItem {...dialog} key={dialog.id} />
+        <DialogItem {...dialog} key={dialog.id} onRemove={omRemove} />
       ))}
     </section>
   );

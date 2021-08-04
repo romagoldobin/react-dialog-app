@@ -8,37 +8,44 @@ import Icon from '../../Icon';
 import './index.scss';
 
 const DialogItem = ({
-  isReverse, isRemovable, messages, avatar,
-}) => (
-  <div className={classNames('DialogItem', { DialogItem_Reverse: isReverse, DialogItem_Removable: isRemovable })}>
-    <img src={avatar} className="DialogItem__Avatar" alt="User Avatar" />
-    <div className="DialogItem__MessagesList">
-      {/* TODO: Message can be a component */}
-      {messages.map((message) => (
-        <div className="Message" key={message.id}>
-          <div className="Message__Text">
-            {message.text}
+  isReverse, isRemovable, messages, avatar, onRemove,
+}) => {
+  const onRemoveHandler = (e) => {
+    const { id } = e.currentTarget.dataset;
+    onRemove(+id);
+  };
+  return (
+    <div className={classNames('DialogItem', { DialogItem_Reverse: isReverse, DialogItem_Removable: isRemovable })}>
+      <img src={avatar} className="DialogItem__Avatar" alt="User Avatar" />
+      <div className="DialogItem__MessagesList">
+        {/* TODO: Message can be a component */}
+        {messages.map((message) => (
+          <div className="Message" key={message.id}>
+            <div className="Message__Text">
+              {message.text}
+            </div>
+            <div className="Message__Time">
+              { dayjs(message.date).format('HH:mm') }
+            </div>
+            <Icon
+              size={15}
+              className="Message__Status"
+              name={
+                message.status === 'sended' ? 'MessageSended' : 'MessageReaded'
+                }
+            />
+            <IoIosTrash
+              data-id={message.id}
+              size={18}
+              className="Message__Remove"
+              onClick={onRemoveHandler}
+            />
           </div>
-          <div className="Message__Time">
-            { dayjs(message.date).format('HH:mm') }
-          </div>
-          <Icon
-            size={15}
-            className="Message__Status"
-            name={
-              message.status === 'sended' ? 'MessageSended' : 'MessageReaded'
-              }
-          />
-          <IoIosTrash
-            data-id={message.id}
-            size={18}
-            className="Message__Remove"
-          />
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 DialogItem.propTypes = {
   isReverse: PropTypes.bool.isRequired,
@@ -52,6 +59,7 @@ DialogItem.propTypes = {
       status: PropTypes.oneOf(['sended', 'readed']),
     }),
   ).isRequired,
+  onRemove: PropTypes.func.isRequired,
 };
 
 export default DialogItem;
