@@ -1,0 +1,34 @@
+// .Button {
+//   &_ThemeToggler {
+//     all: unset;
+//     cursor: pointer;
+
+//     &_Light {
+//       path {
+//         fill: var(--yellow);
+//       }
+//     }
+//     &_Dark {
+//       path {
+//         fill: var(--dark);
+//       }
+//     }
+//   }
+// }
+
+.Button {
+  all: unset;
+}
+
+.Theme {
+  cursor: pointer;
+  margin-left: auto;
+
+  svg.Dark path {
+    fill: var(--dark);
+  }
+
+  svg.Light path {
+    fill: var(--yellow);
+  }
+}
