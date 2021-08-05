@@ -12,6 +12,7 @@ function App() {
   const [theme, toggleTheme] = useState(getTheme());
   const dispatch = useDispatch();
 
+  // Оно тут надо ?
   const sendMessage = (message) => {
     dispatch(addMessageAction(message));
 
