@@ -27,11 +27,11 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="Container">
+      <section className="Container">
         <Header />
         <Dialog />
         <Sender onAddMessage={sendMessage} />
-      </div>
+      </section>
     </ThemeContext.Provider>
   );
 }
