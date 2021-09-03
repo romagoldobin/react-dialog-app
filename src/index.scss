@@ -35,7 +35,7 @@ body.dark {
 }
 
 html,
-body {
+body, #root {
   height: 100%;
 }
 
@@ -49,8 +49,13 @@ body {
 
 .Container {
   display: flex;
+  flex: 1;
+  height: 100%;
+}
+
+.DialogContainer {
+  display: flex;
   flex-direction: column;
-  max-width: 1200px;
-  height: 100vh;
+  flex: 1;
   margin: 0 auto;
 }
