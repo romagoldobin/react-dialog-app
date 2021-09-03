@@ -47,6 +47,19 @@ body {
   transition: background-color .2s linear;
 }
 
+.Aside {
+  width: 436px;
+  border-right: 1px solid var(--border);
+  transition: border-color .2s linear;
+
+  header {
+    padding: 24px 8px;
+    min-height: 70px;
+    border-bottom: 1px solid var(--border);
+    transition: border-color .2s linear;
+  }
+}
+
 .Container {
   display: flex;
   flex: 1;
